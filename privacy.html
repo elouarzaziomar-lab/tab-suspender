@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Tab Suspender</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0f1113; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid #1e2228; }
+    .nav-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 0.9rem; color: #94a3b8; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    /* CONTENT */
+    .content { max-width: 680px; margin: 0 auto; padding: 72px 24px 120px; }
+    .content h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; margin-bottom: 8px; }
+    .updated { font-size: 0.85rem; color: #475569; margin-bottom: 56px; }
+
+    .section { margin-bottom: 44px; }
+    .section h2 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .section h2::before { content: ''; display: inline-block; width: 3px; height: 1em; background: #4285f4; border-radius: 2px; flex-shrink: 0; }
+    .section p { font-size: 0.95rem; color: #64748b; line-height: 1.75; }
+    .section a { color: #4285f4; }
+    .section a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid #1e2228; padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.85rem; color: #475569; transition: color 0.2s; }
+    .footer-links a:hover { color: #94a3b8; }
+    .footer-copy { font-size: 0.8rem; color: #334155; }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Tab Suspender</a>
+    <div class="nav-links">
+      <a href="session-manager.html">Session Manager</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </nav>
+
+  <main class="content">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: June 2026</p>
+
+    <div class="section">
+      <h2>No data collected</h2>
+      <p>Tab Suspender does not collect, store, or transmit any personal data, browsing history, or usage information. We have no access to what sites you visit or how you use the extension.</p>
+    </div>
+
+    <div class="section">
+      <h2>Local storage only</h2>
+      <p>All settings, whitelists, and session data are stored exclusively in your browser's local storage using Chrome's built-in storage APIs. This data never leaves your device.</p>
+    </div>
+
+    <div class="section">
+      <h2>No analytics</h2>
+      <p>We do not use Google Analytics, Mixpanel, Segment, or any other analytics or telemetry service. There is no tracking code of any kind embedded in the extension.</p>
+    </div>
+
+    <div class="section">
+      <h2>No external servers</h2>
+      <p>Tab Suspender makes zero network requests to external servers. The extension operates entirely offline and does not communicate with any backend service. Your browser's network tab will stay silent.</p>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+      <p>Questions about this policy? Reach out at <a href="mailto:elouarzazi.omar@gmail.com">elouarzazi.omar@gmail.com</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Tab Suspender</a>
+      <a href="session-manager.html">Session Manager</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 Tab Suspender</span>
+  </footer>
+
+</body>
+</html>

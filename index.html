@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tab Suspender — Free up RAM by suspending inactive tabs</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0f1113; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid #1e2228; }
+    .nav-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 0.9rem; color: #94a3b8; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    /* HERO */
+    .hero { text-align: center; padding: 100px 24px 80px; max-width: 760px; margin: 0 auto; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; color: #fff; line-height: 1.15; margin-bottom: 20px; }
+    .hero p { font-size: 1.1rem; color: #64748b; margin-bottom: 36px; }
+    .btn { display: inline-block; background: #4285f4; color: #fff; padding: 14px 32px; border-radius: 8px; font-size: 1rem; font-weight: 600; transition: background 0.2s, transform 0.15s; }
+    .btn:hover { background: #3367d6; transform: translateY(-1px); }
+
+    /* CARDS */
+    .cards-section { padding: 60px 24px 80px; max-width: 1000px; margin: 0 auto; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card { background: #161a1e; border: 1px solid #1e2228; border-radius: 12px; padding: 32px 28px; }
+    .card-icon { font-size: 1.8rem; margin-bottom: 16px; }
+    .card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .card p { font-size: 0.9rem; color: #64748b; line-height: 1.65; }
+
+    /* TRUST */
+    .trust { max-width: 720px; margin: 0 auto; padding: 0 24px 100px; }
+    .trust-block { border-left: 3px solid #4285f4; background: #161a1e; border-radius: 0 12px 12px 0; padding: 28px 32px; }
+    .trust-block p { font-size: 1rem; color: #94a3b8; font-style: italic; line-height: 1.75; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid #1e2228; padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.85rem; color: #475569; transition: color 0.2s; }
+    .footer-links a:hover { color: #94a3b8; }
+    .footer-copy { font-size: 0.8rem; color: #334155; }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">Tab Suspender</span>
+    <div class="nav-links">
+      <a href="session-manager.html">Session Manager</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Free up RAM by suspending inactive tabs.</h1>
+    <p>100% local, no tracking.</p>
+    <a class="btn" href="#">Add to Chrome</a>
+  </section>
+
+  <section class="cards-section">
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">⏸</div>
+        <h3>Auto-suspend</h3>
+        <p>Inactive tabs sleep after a configurable delay, freeing up memory automatically without any manual effort.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛡</div>
+        <h3>Whitelist</h3>
+        <p>Protect sites you never want suspended — your email, docs, or any tab you need to stay alive.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔊</div>
+        <h3>Audio protection</h3>
+        <p>Tabs playing audio are never suspended. Your music and calls keep running without interruption.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="trust-block">
+      <p>"Built after The Great Suspender's malware incident — the tab suspender you can actually trust."</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="session-manager.html">Session Manager</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 Tab Suspender</span>
+  </footer>
+
+</body>
+</html>

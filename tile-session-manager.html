@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:440px;height:280px;overflow:hidden;background:#090b12;font-family:'Inter',sans-serif;display:flex;flex-direction:column;justify-content:space-between;padding:28px;position:relative}
+.glow{position:absolute;width:360px;height:240px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(139,92,246,.25) 0%,transparent 65%);pointer-events:none}
+.top{display:flex;align-items:center;gap:10px;position:relative}
+.name{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.sub{font-size:11px;color:rgba(255,255,255,.4);margin-left:auto;letter-spacing:.02em}
+.mid{position:relative}
+.headline{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1.1;margin-bottom:8px}
+.headline em{font-style:normal;color:#8b5cf6}
+.pills{display:flex;gap:7px;flex-wrap:wrap}
+.stats{display:flex;gap:16px;position:relative}
+.stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 16px;display:flex;flex-direction:column;gap:3px}
+.snum{font-size:20px;font-weight:900;line-height:1}
+.slabel{font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="top"><svg viewBox="0 0 48 48" fill="none" width="36" height="36"><rect width="48" height="48" rx="11" fill="#15122a"/><rect x="12" y="21" width="25" height="15" rx="3" fill="#5d4d8c"/><rect x="13" y="17" width="23" height="15" rx="3" fill="#7a68ad"/><rect x="11" y="12" width="26" height="16" rx="3" fill="#a78bfa"/></svg><span class="name">Session Manager</span><span class="sub">tabsuspender.app</span></div>
+<div class="mid">
+  <div class="headline">Save & restore tab groups <em>·</em> 100% local</div>
+  <div class="pills"><span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600">💾 One-click save</span><span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600">↺ Instant restore</span><span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:5px 10px;border-radius:14px;font-size:11px;font-weight:600">⤓ JSON export</span></div>
+</div>
+<div class="stats">
+  <div class="stat"><div class="snum" style="color:#c4b5fd">4</div><div class="slabel">sessions saved</div></div>
+  <div class="stat"><div class="snum" style="color:#4ade80">28</div><div class="slabel">tabs preserved</div></div>
+</div>
+</body></html>

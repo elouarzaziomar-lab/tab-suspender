@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1280"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1280px;height:800px;overflow:hidden;background:#090d12;font-family:'Inter',sans-serif;display:flex;flex-direction:column}
+
+  /* BG glow */
+  .glow{position:absolute;width:700px;height:500px;top:80px;left:50%;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(66,133,244,.22) 0%,transparent 65%);pointer-events:none}
+
+  /* TOP BAR */
+  .topbar{padding:20px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+  .logo{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#fff}
+  .logo svg{width:32px;height:32px}
+  .tagline{font-size:13px;color:rgba(255,255,255,.35);letter-spacing:.04em}
+
+  /* MAIN */
+  .main{flex:1;display:grid;grid-template-columns:1fr 420px;gap:0;align-items:center;padding:40px 48px 32px;position:relative}
+
+  /* LEFT */
+  .left{display:flex;flex-direction:column;gap:32px}
+  .headline{font-size:44px;font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#fff}
+  .headline span{background:linear-gradient(135deg,#4285f4,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{font-size:16px;color:rgba(255,255,255,.45);line-height:1.6;max-width:480px}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:.02em}
+  .pill.blue{background:rgba(66,133,244,.15);color:#60a5fa;border:1px solid rgba(66,133,244,.3)}
+  .pill.green{background:rgba(52,168,83,.15);color:#4ade80;border:1px solid rgba(52,168,83,.3)}
+  .pill.orange{background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.3)}
+
+  /* BROWSER MOCKUP */
+  .browser-wrap{position:relative}
+  .browser{background:#1a1f26;border-radius:14px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.06)}
+  .bbar{background:#141820;padding:10px 14px;display:flex;align-items:center;gap:6px}
+  .bdot{width:10px;height:10px;border-radius:50%}
+  .burl{flex:1;height:16px;background:#232830;border-radius:5px;margin-left:10px}
+  .bpage{background:#f1f3f4;padding:28px 20px;display:flex;justify-content:center}
+  .susp-card{background:#fff;border-radius:12px;padding:24px;width:300px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+  .fav{width:44px;height:44px;background:#e8eaed;border-radius:10px;margin:0 auto 14px}
+  .stitle{font-size:13px;font-weight:600;color:#202124;margin-bottom:4px}
+  .surl{font-size:11px;color:#5f6368;margin-bottom:16px}
+  .wbtn{display:inline-flex;align-items:center;gap:6px;background:#4285f4;color:#fff;padding:8px 20px;border-radius:18px;font-size:12px;font-weight:600}
+
+  /* POPUP BADGE */
+  .popup-badge{position:absolute;top:-16px;right:-16px;background:#1a1f26;border-radius:14px;border:1px solid rgba(255,255,255,.06);padding:16px;width:200px;box-shadow:0 16px 40px rgba(0,0,0,.5)}
+  .pb-row{display:flex;justify-content:space-between;margin-bottom:10px}
+  .pb-stat{text-align:center}
+  .pb-num{font-size:22px;font-weight:800;line-height:1}
+  .pb-label{font-size:9px;color:rgba(255,255,255,.35);margin-top:3px;text-transform:uppercase;letter-spacing:.04em}
+
+  /* FEATURES ROW */
+  .features{display:flex;gap:14px;padding:0 48px 32px;flex-shrink:0}
+  .feat{flex:1;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 18px;display:flex;align-items:flex-start;gap:12px}
+  .feat-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+  .feat h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:3px}
+  .feat p{font-size:11px;color:rgba(255,255,255,.4);line-height:1.5}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+
+<div class="topbar">
+  <div class="logo">
+    <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="11" fill="#4285f4"/><circle cx="30" cy="24" r="13" fill="#fff"/><circle cx="37" cy="24" r="13" fill="#4285f4"/></svg>
+    Tab Suspender
+  </div>
+  <div class="tagline">tabsuspender.app</div>
+</div>
+
+<div class="main">
+  <div class="left">
+    <div class="headline">Free up RAM.<br/><span>Suspend inactive tabs.</span></div>
+    <div class="sub">100% local, zero tracking. The tab suspender built for trust — with a live memory dashboard and call protection.</div>
+    <div class="pills">
+      <div class="pill blue">🧠 Memory dashboard</div>
+      <div class="pill green">🎙️ Call protection</div>
+      <div class="pill orange">⚡ Pro — 7€ forever</div>
+      <div class="pill blue">🔒 100% local</div>
+    </div>
+  </div>
+
+  <div class="browser-wrap">
+    <div class="browser">
+      <div class="bbar">
+        <div class="bdot" style="background:#ff5f56"></div>
+        <div class="bdot" style="background:#ffbd2e"></div>
+        <div class="bdot" style="background:#27c93f"></div>
+        <div class="burl"></div>
+      </div>
+      <div class="bpage">
+        <div class="susp-card">
+          <div class="fav"></div>
+          <div class="stitle">GitHub — Where the world builds software</div>
+          <div class="surl">https://github.com</div>
+          <div class="wbtn">↑ Wake up</div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-badge">
+      <div class="pb-row">
+        <div class="pb-stat">
+          <div class="pb-num" style="color:#4285f4">8</div>
+          <div class="pb-label">suspended</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.08)"></div>
+        <div class="pb-stat">
+          <div class="pb-num" style="color:#4ade80">1.2<span style="font-size:14px">GB</span></div>
+          <div class="pb-label">saved</div>
+        </div>
+      </div>
+      <div style="background:#4285f4;color:#fff;text-align:center;padding:7px;border-radius:7px;font-size:11px;font-weight:700">Suspend inactive tabs</div>
+    </div>
+  </div>
+</div>
+
+<div class="features">
+  <div class="feat">
+    <div class="feat-icon" style="background:rgba(66,133,244,.15)">⏸</div>
+    <div><h4>Auto-suspend</h4><p>Configurable delay — 5, 15, 30 min free, any value with Pro</p></div>
+  </div>
+  <div class="feat">
+    <div class="feat-icon" style="background:rgba(52,168,83,.15)">🎙️</div>
+    <div><h4>Call protection</h4><p>Never suspends tabs using your microphone or camera</p></div>
+  </div>
+  <div class="feat">
+    <div class="feat-icon" style="background:rgba(245,158,11,.15)">🛡</div>
+    <div><h4>Whitelist</h4><p>Protect your email, docs, and any site you need alive</p></div>
+  </div>
+  <div class="feat">
+    <div class="feat-icon" style="background:rgba(139,92,246,.15)">🔒</div>
+    <div><h4>Privacy-first</h4><p>Zero data collected. Everything stays on your machine</p></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Claude Search</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0f1113; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; border-bottom: 1px solid #1e2228; position: sticky; top: 0; background: rgba(15,17,19,0.85); backdrop-filter: blur(10px); z-index: 10; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; }
+    .nav-logo svg { width: 26px; height: 26px; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 0.9rem; color: #94a3b8; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    /* CONTENT */
+    .content { max-width: 680px; margin: 0 auto; padding: 72px 24px 120px; }
+    .content h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; margin-bottom: 8px; }
+    .updated { font-size: 0.85rem; color: #475569; margin-bottom: 24px; }
+    .lede { font-size: 1.02rem; color: #94a3b8; margin-bottom: 48px; line-height: 1.7; }
+
+    .section { margin-bottom: 40px; }
+    .section h2 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .section h2::before { content: ''; display: inline-block; width: 3px; height: 1em; background: #f59e0b; border-radius: 2px; flex-shrink: 0; }
+    .section p { font-size: 0.95rem; color: #64748b; line-height: 1.75; }
+    .section ul { list-style: none; margin-top: 10px; }
+    .section li { font-size: 0.95rem; color: #64748b; line-height: 1.7; padding-left: 20px; position: relative; margin-bottom: 8px; }
+    .section li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 5px; height: 5px; border-radius: 50%; background: #f59e0b; }
+    .section a { color: #f59e0b; }
+    .section a:hover { text-decoration: underline; }
+    .section strong { color: #cbd5e1; font-weight: 600; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid #1e2228; padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.85rem; color: #475569; transition: color 0.2s; }
+    .footer-links a:hover { color: #94a3b8; }
+    .footer-copy { font-size: 0.8rem; color: #334155; }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 16px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="claude-search.html">
+      <svg viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="11" fill="#1a1400"/>
+        <circle cx="20" cy="20" r="9" stroke="#f59e0b" stroke-width="2.5"/>
+        <line x1="26.5" y1="26.5" x2="34" y2="34" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M22 15l-4 6h4l-4 6" stroke="#fcd34d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Claude Search
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Tab Suspender</a>
+      <a href="session-manager.html">Session Manager</a>
+      <a href="claude-search.html">Claude Search</a>
+    </div>
+  </nav>
+
+  <main class="content">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: June 2026</p>
+    <p class="lede">This policy applies to the <strong>Claude Search</strong> browser extension. In short: Claude Search runs entirely in your browser, stores everything on your device, and sends your data to no one.</p>
+
+    <div class="section">
+      <h2>Everything stays on your device</h2>
+      <p>Claude Search builds a search index of your Claude.ai conversations and stores it locally in your browser using IndexedDB. This index — conversation titles, message text, dates, and project identifiers — <strong>never leaves your device</strong>. It is not uploaded, synced, shared, or sold.</p>
+    </div>
+
+    <div class="section">
+      <h2>What the extension accesses</h2>
+      <p>To build the index, Claude Search reads your conversations from Claude.ai using your own, already-logged-in session — exactly the same data the Claude.ai website already loads for you. The extension only runs on <strong>claude.ai</strong> and does not read, modify, or access any other website.</p>
+    </div>
+
+    <div class="section">
+      <h2>No servers of our own, no third parties</h2>
+      <p>Claude Search has no backend. It does not send your conversations, your search queries, or any other data to a server operated by us or by anyone else. The only network requests it makes are to <strong>Claude.ai's own API</strong> — the same requests the site already performs — solely to read your history so it can be indexed locally.</p>
+    </div>
+
+    <div class="section">
+      <h2>No analytics, no tracking, no account</h2>
+      <p>There is no Google Analytics, Mixpanel, telemetry, advertising, or tracking code of any kind in the extension. Claude Search requires no sign-up and collects no name, email, or other personal identifier.</p>
+    </div>
+
+    <div class="section">
+      <h2>Permissions, and why each is needed</h2>
+      <ul>
+        <li><strong>storage / unlimitedStorage</strong> — to save the local search index (IndexedDB) without a size limit.</li>
+        <li><strong>tabs</strong> — to open the conversation you click on in a new tab.</li>
+        <li><strong>access to claude.ai</strong> — to read your conversations from Claude.ai so they can be indexed locally. No other site is accessed.</li>
+      </ul>
+      <p>Each permission is used only for the feature described above, and for nothing else.</p>
+    </div>
+
+    <div class="section">
+      <h2>You stay in control of your data</h2>
+      <p>You can delete the local index at any time: uninstalling the extension removes its database, and you can also clear it through your browser's site-data settings. Because nothing is stored anywhere else, removing it from your device removes it completely.</p>
+    </div>
+
+    <div class="section">
+      <h2>Changes to this policy</h2>
+      <p>If this policy changes, the "last updated" date above will be revised. Material changes will be reflected on this page.</p>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+      <p>Questions about this policy? Reach out at <a href="mailto:elouarzazi.omar@gmail.com">elouarzazi.omar@gmail.com</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Tab Suspender</a>
+      <a href="session-manager.html">Session Manager</a>
+      <a href="claude-search.html">Claude Search</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 tabsuspender.app</span>
+  </footer>
+
+</body>
+</html>

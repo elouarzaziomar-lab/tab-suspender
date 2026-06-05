@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude Search — Full-text search for Claude.ai</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0f1113; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; border-bottom: 1px solid #1e2228; position: sticky; top: 0; background: rgba(15,17,19,0.85); backdrop-filter: blur(10px); z-index: 10; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; }
+    .nav-logo svg { width: 26px; height: 26px; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 0.9rem; color: #94a3b8; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    .hero { position: relative; text-align: center; padding: 90px 24px 40px; max-width: 820px; margin: 0 auto; }
+    .hero::before { content: ""; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(ellipse at center, rgba(245,158,11,0.15), transparent 60%); pointer-events: none; z-index: -1; }
+    .hero h1 { font-size: clamp(2.1rem, 5.5vw, 3.4rem); font-weight: 800; letter-spacing: -0.03em; color: #fff; line-height: 1.12; margin-bottom: 20px; }
+    .hero .sub { font-size: 1.2rem; color: #64748b; margin-bottom: 36px; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; background: #f59e0b; color: #fff; padding: 14px 30px; border-radius: 10px; font-size: 1rem; font-weight: 600; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 8px 24px rgba(245,158,11,0.25); }
+    .btn:hover { background: #d97706; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(245,158,11,0.35); }
+    .btn svg { width: 20px; height: 20px; }
+
+    .mockup-wrap { max-width: 640px; margin: 56px auto 0; padding: 0 24px; }
+    .browser { border-radius: 16px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.5); border: 1px solid #1e2228; }
+    .browser-bar { background: #1c2026; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .browser-url { flex: 1; height: 18px; background: #282d34; border-radius: 6px; margin-left: 12px; }
+    .cs-body { background: #14161a; padding: 32px 24px; display: flex; justify-content: center; }
+    .cs-panel { background: #1c2026; border-radius: 12px; padding: 16px; width: 100%; max-width: 380px; }
+    .cs-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .cs-kbd { font-size: 0.7rem; background: #363b44; color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-family: monospace; margin-left: auto; }
+    .cs-search { display: flex; align-items: center; gap: 8px; background: #262b32; border-radius: 8px; padding: 8px 12px; margin-bottom: 12px; }
+    .cs-result { border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border: 1px solid transparent; }
+    .cs-result.active { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.3); }
+    .cs-result:not(.active) { background: #262b32; }
+    .cs-result-title { font-size: 0.85rem; font-weight: 600; color: #e2e8f0; margin-bottom: 3px; }
+    .cs-result-preview { font-size: 0.78rem; color: #64748b; line-height: 1.5; }
+    .cs-result-preview mark { background: rgba(245,158,11,0.3); color: #fcd34d; border-radius: 2px; padding: 0 2px; font-style: normal; }
+    .cs-result-date { font-size: 0.72rem; color: #475569; margin-top: 4px; }
+
+    .cards-section { padding: 80px 24px 60px; max-width: 1040px; margin: 0 auto; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .card { background: #161a1e; border: 1px solid #1e2228; border-radius: 14px; padding: 32px 28px; transition: transform 0.2s, border-color 0.2s; }
+    .card:hover { transform: translateY(-4px); border-color: #2d3744; }
+    .card-icon { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(245,158,11,0.18), rgba(245,158,11,0.06)); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .card-icon svg { width: 24px; height: 24px; stroke: #f59e0b; }
+    .card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .card p { font-size: 0.9rem; color: #64748b; line-height: 1.65; }
+
+    .shortcuts { max-width: 880px; margin: 0 auto; padding: 0 24px 80px; }
+    .shortcuts h2 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+    .shortcut-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .shortcut-row { display: flex; align-items: center; justify-content: space-between; background: #161a1e; border: 1px solid #1e2228; border-radius: 10px; padding: 14px 18px; }
+    .shortcut-label { font-size: 0.9rem; color: #94a3b8; }
+    .shortcut-key { display: flex; gap: 4px; }
+    .key { font-size: 0.75rem; background: #262b32; color: #e2e8f0; padding: 3px 8px; border-radius: 5px; border: 1px solid #363b44; font-family: monospace; }
+
+    footer { border-top: 1px solid #1e2228; padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.85rem; color: #475569; transition: color 0.2s; }
+    .footer-links a:hover { color: #94a3b8; }
+    .footer-copy { font-size: 0.8rem; color: #334155; }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 18px; }
+      .shortcut-grid { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">
+      <svg viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="11" fill="#1a1400"/>
+        <circle cx="20" cy="20" r="9" stroke="#f59e0b" stroke-width="2.5"/>
+        <line x1="26.5" y1="26.5" x2="34" y2="34" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M22 15l-4 6h4l-4 6" stroke="#fcd34d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Claude Search
+    </span>
+    <div class="nav-links">
+      <a href="index.html">Tab Suspender</a>
+      <a href="session-manager.html">Session Manager</a>
+      <a href="claude-search-privacy.html">Privacy</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Search every word of your Claude.ai history.</h1>
+    <p class="sub">Full-text search, 100% local. Find any answer Claude gave you — instantly.</p>
+    <a class="btn" href="#">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="#fff"/></svg>
+      Add to Chrome
+    </a>
+  </section>
+
+  <div class="mockup-wrap">
+    <div class="browser">
+      <div class="browser-bar">
+        <span class="dot" style="background:#ff5f56"></span>
+        <span class="dot" style="background:#ffbd2e"></span>
+        <span class="dot" style="background:#27c93f"></span>
+        <span class="browser-url"></span>
+      </div>
+      <div class="cs-body">
+        <div class="cs-panel">
+          <div class="cs-head">
+            <svg viewBox="0 0 48 48" fill="none" width="20" height="20"><rect width="48" height="48" rx="11" fill="#1a1400"/><circle cx="20" cy="20" r="9" stroke="#f59e0b" stroke-width="2.5"/><line x1="26.5" y1="26.5" x2="34" y2="34" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/><path d="M22 15l-4 6h4l-4 6" stroke="#fcd34d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.9rem;font-weight:700;color:#fff">Claude Search</span>
+            <span class="cs-kbd">⌥⇧F</span>
+          </div>
+          <div class="cs-search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+            <span style="flex:1;font-size:0.85rem;color:#c8d2e0">transformer architecture</span>
+          </div>
+          <div class="cs-result active">
+            <div class="cs-result-title">Building a RAG pipeline from scratch</div>
+            <div class="cs-result-preview">The <mark>transformer architecture</mark> uses self-attention to process tokens in parallel, which makes it…</div>
+            <div class="cs-result-date">May 28, 2026</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-title">Fine-tuning vs prompt engineering</div>
+            <div class="cs-result-preview">…unlike RNNs, the <mark>transformer architecture</mark> doesn't process sequences step by step, so you can…</div>
+            <div class="cs-result-date">April 12, 2026</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-title">Explain attention mechanisms</div>
+            <div class="cs-result-preview">The key insight behind the <mark>transformer architecture</mark> is that every token can attend to…</div>
+            <div class="cs-result-date">March 3, 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="cards-section">
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+        </div>
+        <h3>Full-text search</h3>
+        <p>Search the complete content of every conversation, not just titles. Accent-insensitive and prefix-aware — find any answer in milliseconds.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <h3>Smart previews</h3>
+        <p>Every result shows the conversation title, the matching passage with your keyword highlighted, and the date. No clicking around.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Activity heatmap</h3>
+        <p>Press ⌥⇧G to see your Claude usage over the year, GitHub-style. Spot your most active periods at a glance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="shortcuts">
+    <h2>Keyboard shortcuts</h2>
+    <div class="shortcut-grid">
+      <div class="shortcut-row">
+        <span class="shortcut-label">Open search from anywhere</span>
+        <span class="shortcut-key"><span class="key">⌥</span><span class="key">⇧</span><span class="key">F</span></span>
+      </div>
+      <div class="shortcut-row">
+        <span class="shortcut-label">Open activity heatmap</span>
+        <span class="shortcut-key"><span class="key">⌥</span><span class="key">⇧</span><span class="key">G</span></span>
+      </div>
+      <div class="shortcut-row">
+        <span class="shortcut-label">Navigate results</span>
+        <span class="shortcut-key"><span class="key">↑</span><span class="key">↓</span></span>
+      </div>
+      <div class="shortcut-row">
+        <span class="shortcut-label">Open selected conversation</span>
+        <span class="shortcut-key"><span class="key">Enter</span></span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Tab Suspender</a>
+      <a href="session-manager.html">Session Manager</a>
+      <a href="claude-search-privacy.html">Privacy Policy</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 tabsuspender.app</span>
+  </footer>
+
+</body>
+</html>

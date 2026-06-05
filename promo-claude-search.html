@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1280"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1280px;height:800px;overflow:hidden;background:#0a0900;font-family:'Inter',sans-serif;display:flex;flex-direction:column}
+  .glow{position:absolute;width:700px;height:500px;top:80px;left:50%;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(245,158,11,.18) 0%,transparent 65%);pointer-events:none}
+
+  .topbar{padding:20px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+  .logo{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#fff}
+  .tagline{font-size:13px;color:rgba(255,255,255,.35);letter-spacing:.04em}
+
+  .main{flex:1;display:grid;grid-template-columns:1fr 440px;gap:0;align-items:center;padding:36px 48px 28px;position:relative}
+
+  .left{display:flex;flex-direction:column;gap:28px}
+  .headline{font-size:44px;font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#fff}
+  .headline span{background:linear-gradient(135deg,#f59e0b,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{font-size:16px;color:rgba(255,255,255,.45);line-height:1.6;max-width:480px}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{padding:7px 14px;border-radius:20px;font-size:12px;font-weight:600;background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+
+  .browser{background:#1a1d22;border-radius:14px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.06)}
+  .bbar{background:#141720;padding:10px 14px;display:flex;align-items:center;gap:6px}
+  .bdot{width:10px;height:10px;border-radius:50%}
+  .burl{flex:1;height:16px;background:#1f2330;border-radius:5px;margin-left:10px}
+  .cs-body{background:#0f1115;padding:28px 20px;display:flex;justify-content:center}
+  .cs-panel{background:#1a1d22;border-radius:12px;padding:16px;width:340px}
+  .cs-head{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+  .cs-head span{font-size:13px;font-weight:700;color:#fff}
+  .cs-kbd{font-size:10px;background:#262b32;color:#94a3b8;padding:2px 7px;border-radius:4px;font-family:monospace;margin-left:auto}
+  .cs-search{display:flex;align-items:center;gap:8px;background:#262b32;border-radius:8px;padding:9px 12px;margin-bottom:12px}
+  .cs-input{font-size:12px;color:#e2e8f0;flex:1}
+  .cs-result{border-radius:8px;padding:10px 12px;margin-bottom:7px;border:1px solid transparent}
+  .cs-result.active{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3)}
+  .cs-result:not(.active){background:#262b32}
+  .cs-title{font-size:12px;font-weight:700;color:#e2e8f0;margin-bottom:3px}
+  .cs-preview{font-size:11px;color:#64748b;line-height:1.5}
+  .cs-preview mark{background:rgba(245,158,11,.25);color:#fcd34d;border-radius:2px;padding:0 2px;font-style:normal}
+  .cs-date{font-size:10px;color:#475569;margin-top:3px}
+
+  .features{display:flex;gap:14px;padding:0 48px 32px;flex-shrink:0}
+  .feat{flex:1;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 18px;display:flex;align-items:flex-start;gap:12px}
+  .feat-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;background:rgba(245,158,11,.12)}
+  .feat h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:3px}
+  .feat p{font-size:11px;color:rgba(255,255,255,.4);line-height:1.5}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+
+<div class="topbar">
+  <div class="logo">
+    <svg viewBox="0 0 48 48" fill="none" width="32" height="32"><rect width="48" height="48" rx="11" fill="#1a1400"/><circle cx="20" cy="20" r="9" stroke="#f59e0b" stroke-width="2.5"/><line x1="26.5" y1="26.5" x2="34" y2="34" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/><path d="M22 15l-4 6h4l-4 6" stroke="#fcd34d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Claude Search
+  </div>
+  <div class="tagline">tabsuspender.app</div>
+</div>
+
+<div class="main">
+  <div class="left">
+    <div class="headline">Search every word of<br/>your <span>Claude.ai</span> history.</div>
+    <div class="sub">Full-text search across all your conversations. Find any answer Claude gave you — in milliseconds, 100% locally.</div>
+    <div class="pills">
+      <div class="pill">🔍 Full-text search</div>
+      <div class="pill">✦ Smart previews</div>
+      <div class="pill">📊 Activity heatmap</div>
+      <div class="pill">⌨️ Keyboard shortcuts</div>
+      <div class="pill">🔒 100% local</div>
+    </div>
+  </div>
+
+  <div class="browser">
+    <div class="bbar">
+      <div class="bdot" style="background:#ff5f56"></div>
+      <div class="bdot" style="background:#ffbd2e"></div>
+      <div class="bdot" style="background:#27c93f"></div>
+      <div class="burl"></div>
+    </div>
+    <div class="cs-body">
+      <div class="cs-panel">
+        <div class="cs-head">
+          <svg viewBox="0 0 48 48" fill="none" width="20" height="20"><rect width="48" height="48" rx="11" fill="#1a1400"/><circle cx="20" cy="20" r="9" stroke="#f59e0b" stroke-width="2.5"/><line x1="26.5" y1="26.5" x2="34" y2="34" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <span>Claude Search</span>
+          <span class="cs-kbd">⌥⇧F</span>
+        </div>
+        <div class="cs-search">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+          <div class="cs-input">transformer architecture</div>
+        </div>
+        <div class="cs-result active">
+          <div class="cs-title">Building a RAG pipeline from scratch</div>
+          <div class="cs-preview">The <mark>transformer architecture</mark> uses self-attention to process tokens in parallel…</div>
+          <div class="cs-date">May 28, 2026</div>
+        </div>
+        <div class="cs-result">
+          <div class="cs-title">Fine-tuning vs prompt engineering</div>
+          <div class="cs-preview">Unlike RNNs, the <mark>transformer architecture</mark> doesn't process sequences step by step…</div>
+          <div class="cs-date">April 12, 2026</div>
+        </div>
+        <div class="cs-result">
+          <div class="cs-title">Explain attention mechanisms</div>
+          <div class="cs-preview">The key insight behind the <mark>transformer architecture</mark> is that every token can…</div>
+          <div class="cs-date">March 3, 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="features">
+  <div class="feat">
+    <div class="feat-icon">🔍</div>
+    <div><h4>Full-text search</h4><p>Search inside every conversation, not just titles</p></div>
+  </div>
+  <div class="feat">
+    <div class="feat-icon">✦</div>
+    <div><h4>Smart previews</h4><p>Matching passage highlighted in context</p></div>
+  </div>
+  <div class="feat">
+    <div class="feat-icon">📊</div>
+    <div><h4>Activity heatmap</h4><p>GitHub-style usage calendar with ⌥⇧G</p></div>
+  </div>
+  <div class="feat">
+    <div class="feat-icon">⌨️</div>
+    <div><h4>Keyboard-first</h4><p>⌥⇧F to open, ↑↓ to navigate, Enter to open</p></div>
+  </div>
+</div>
+
+</body>
+</html>

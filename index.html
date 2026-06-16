@@ -5,10 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tab Suspender — Free up RAM by suspending inactive tabs</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%234285f4'/%3E%3Ccircle cx='30' cy='24' r='13' fill='%23fff'/%3E%3Ccircle cx='37' cy='24' r='13' fill='%234285f4'/%3E%3C/svg%3E" />
+  <meta name="description" content="Tab Suspender frees up Chrome's RAM by suspending inactive tabs — live memory dashboard, call protection, and a whitelist that actually works. 100% local." />
+  <link rel="canonical" href="https://tabsuspender.app/" />
+  <meta name="theme-color" content="#0f1113" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tab Suspender — Free up RAM by suspending inactive tabs" />
+  <meta property="og:description" content="Suspend inactive tabs to reclaim memory. Live memory dashboard, reliable whitelist, call protection. 100% local, no tracking." />
+  <meta property="og:url" content="https://tabsuspender.app/" />
+  <meta property="og:image" content="https://tabsuspender.app/og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tab Suspender — Free up RAM by suspending inactive tabs" />
+  <meta name="twitter:description" content="Suspend inactive tabs to reclaim memory. 100% local, no tracking." />
+  <meta name="twitter:image" content="https://tabsuspender.app/og-cover.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tab Suspender",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "description": "Suspend inactive Chrome tabs to free up RAM. Live memory dashboard, reliable whitelist, audio and call protection. 100% local, no tracking.",
+    "url": "https://tabsuspender.app/",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: #0f1113; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid #e2e8f0; outline-offset: 2px; border-radius: 4px; }
 
     /* NAV */
     nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; border-bottom: 1px solid #1e2228; position: sticky; top: 0; background: rgba(15,17,19,0.85); backdrop-filter: blur(10px); z-index: 10; }
@@ -23,6 +48,8 @@
     .hero::before { content: ""; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(ellipse at center, rgba(66,133,244,0.18), transparent 60%); pointer-events: none; z-index: -1; }
     .hero h1 { font-size: clamp(2.1rem, 5.5vw, 3.4rem); font-weight: 800; letter-spacing: -0.03em; color: #fff; line-height: 1.12; margin-bottom: 20px; }
     .hero .sub { font-size: 1.2rem; color: #64748b; margin-bottom: 36px; }
+    .hero-note { margin-top: 18px; font-size: 0.9rem; color: #64748b; }
+    .hero-note strong { color: #94a3b8; font-weight: 600; }
     .btn { display: inline-flex; align-items: center; gap: 10px; background: #4285f4; color: #fff; padding: 14px 30px; border-radius: 10px; font-size: 1rem; font-weight: 600; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 8px 24px rgba(66,133,244,0.25); }
     .btn:hover { background: #3367d6; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(66,133,244,0.35); }
     .btn svg { width: 20px; height: 20px; }
@@ -59,9 +86,9 @@
     /* FOOTER */
     footer { border-top: 1px solid #1e2228; padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     .footer-links { display: flex; gap: 24px; }
-    .footer-links a { font-size: 0.85rem; color: #475569; transition: color 0.2s; }
-    .footer-links a:hover { color: #94a3b8; }
-    .footer-copy { font-size: 0.8rem; color: #334155; }
+    .footer-links a { font-size: 0.85rem; color: #94a3b8; transition: color 0.2s; }
+    .footer-links a:hover { color: #e2e8f0; }
+    .footer-copy { font-size: 0.8rem; color: #64748b; }
 
     @media (max-width: 600px) {
       nav { padding: 14px 20px; }
@@ -74,16 +101,18 @@
 <body>
 
   <nav>
-    <span class="nav-logo">
-      <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="11" fill="#4285f4"/><circle cx="30" cy="24" r="13" fill="#fff"/><circle cx="37" cy="24" r="13" fill="#4285f4"/></svg>
+    <a class="nav-logo" href="index.html">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#4285f4"/><circle cx="30" cy="24" r="13" fill="#fff"/><circle cx="37" cy="24" r="13" fill="#4285f4"/></svg>
       Tab Suspender
-    </span>
+    </a>
     <div class="nav-links">
       <a href="session-manager.html">Session Manager</a>
       <a href="claude-search.html">Claude Search</a>
       <a href="privacy.html">Privacy</a>
     </div>
   </nav>
+
+  <main>
 
   <section class="hero">
     <h1>Free up RAM by suspending inactive tabs.</h1>
@@ -92,6 +121,7 @@
       <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="#fff"/></svg>
       Add to Chrome
     </a>
+    <p class="hero-note"><strong>Free forever.</strong> Optional Pro (7€, one-time) adds custom timers, a dark suspension page &amp; unlimited auto-wake.</p>
   </section>
 
   <div class="mockup-wrap">
@@ -145,6 +175,8 @@
       <p>"Built after The Great Suspender's malware incident — the tab suspender you can actually trust."</p>
     </div>
   </section>
+
+  </main>
 
   <footer>
     <div class="footer-links">

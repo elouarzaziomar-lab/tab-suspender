@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Templates d'assets du Chrome Web Store — non destinés à l'indexation
+Disallow: /marquee-
+Disallow: /tile-
+Disallow: /promo-
+
+Sitemap: https://tabsuspender.app/sitemap.xml

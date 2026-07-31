@@ -40,6 +40,9 @@
     .btn { display: inline-flex; align-items: center; gap: 10px; background: #4285f4; color: #fff; padding: 14px 32px; border-radius: 10px; font-size: 1rem; font-weight: 600; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 8px 24px rgba(66,133,244,0.25); }
     .btn:hover { background: #3367d6; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(66,133,244,0.35); }
     .btn svg { width: 20px; height: 20px; }
+    .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn.alt { background: #161a1e; border: 1px solid #2d3744; box-shadow: none; }
+    .btn.alt:hover { background: #1e2228; box-shadow: none; }
 
     .container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
 
@@ -130,10 +133,16 @@
     <div class="eyebrow">The Great Suspender Alternative</div>
     <h1>The Great Suspender is gone. Here's the one you can trust.</h1>
     <p class="sub">After The Great Suspender was sold and injected with malware, millions lost their favorite tab suspender. Tab Suspender is the safe, open, tracking-free replacement — with features the original never had.</p>
-    <a class="btn" href="https://chromewebstore.google.com/detail/camoapenjippabeepbpfmoeebglemfcp" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="#fff"/></svg>
-      Add to Chrome — Free
-    </a>
+    <div class="cta-row">
+      <a class="btn" href="https://chromewebstore.google.com/detail/camoapenjippabeepbpfmoeebglemfcp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="#fff"/></svg>
+        Add to Chrome — Free
+      </a>
+      <a class="btn alt" href="https://addons.mozilla.org/firefox/addon/tabsuspender/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2c1 3 3 4 3 7a3 3 0 1 1-6 0c0-1 .5-2 1-2-2 1-4 3-4 6a6 6 0 0 0 12 0c0-5-3-7-6-11z"/></svg>
+        Get for Firefox
+      </a>
+    </div>
   </section>
 
   <section class="story">
@@ -165,6 +174,7 @@
         <tr><td>Reliable whitelist (persists)</td><td class="col-us yes">Yes</td><td class="meh">Buggy</td><td class="meh">Buggy</td></tr>
         <tr><td>Audio protection</td><td class="col-us yes">Yes</td><td class="meh">Partial</td><td class="meh">Partial</td></tr>
         <tr><td>Custom suspension page</td><td class="col-us yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+        <tr><td>Works on Chrome &amp; Firefox</td><td class="col-us yes">Both</td><td class="no">Chrome only</td><td class="meh">Chrome only</td></tr>
         </tbody>
       </table>
     </div>
@@ -219,10 +229,16 @@
   <section class="final">
     <h2>Make the switch in one click.</h2>
     <p>Join users who left The Great Suspender behind for something they can trust.</p>
-    <a class="btn" href="https://chromewebstore.google.com/detail/camoapenjippabeepbpfmoeebglemfcp" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="#fff"/></svg>
-      Add to Chrome — Free
-    </a>
+    <div class="cta-row">
+      <a class="btn" href="https://chromewebstore.google.com/detail/camoapenjippabeepbpfmoeebglemfcp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="#fff"/></svg>
+        Add to Chrome — Free
+      </a>
+      <a class="btn alt" href="https://addons.mozilla.org/firefox/addon/tabsuspender/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2c1 3 3 4 3 7a3 3 0 1 1-6 0c0-1 .5-2 1-2-2 1-4 3-4 6a6 6 0 0 0 12 0c0-5-3-7-6-11z"/></svg>
+        Get for Firefox
+      </a>
+    </div>
   </section>
 
   </main>

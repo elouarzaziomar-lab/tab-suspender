@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recover your tabs — Tab Suspender</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%234285f4'/%3E%3Ccircle cx='30' cy='24' r='13' fill='%23fff'/%3E%3Ccircle cx='37' cy='24' r='13' fill='%234285f4'/%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0f1113; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
+    a { color: #4285f4; }
+    nav { display: flex; align-items: center; padding: 18px 40px; border-bottom: 1px solid #1e2228; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 700; color: #fff; text-decoration: none; }
+    .nav-logo svg { width: 26px; height: 26px; }
+    .content { max-width: 680px; margin: 0 auto; padding: 64px 24px 100px; }
+    h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; margin-bottom: 12px; }
+    .lede { font-size: 1.05rem; color: #94a3b8; margin-bottom: 40px; }
+    .alert { background: rgba(66,133,244,0.08); border-left: 3px solid #4285f4; border-radius: 0 10px 10px 0; padding: 22px 26px; margin-bottom: 36px; }
+    .alert h2 { font-size: 1.05rem; color: #fff; margin-bottom: 10px; }
+    .alert p { font-size: 0.95rem; color: #94a3b8; }
+    .section { margin-bottom: 36px; }
+    .section h2 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .section p, .section li { font-size: 0.95rem; color: #64748b; line-height: 1.8; }
+    .section ol { padding-left: 22px; }
+    code { background: #1a1f26; border: 1px solid #262b32; border-radius: 4px; padding: 2px 6px; font-size: 0.88rem; color: #cbd5e1; }
+    footer { border-top: 1px solid #1e2228; padding: 28px 40px; font-size: 0.85rem; color: #475569; text-align: center; }
+    @media (max-width: 600px) { nav { padding: 16px 20px; } .content { padding: 44px 20px 70px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="11" fill="#4285f4"/><circle cx="30" cy="24" r="13" fill="#fff"/><circle cx="37" cy="24" r="13" fill="#4285f4"/></svg>
+      Tab Suspender
+    </a>
+  </nav>
+
+  <main class="content">
+    <h1>Sorry to see you go</h1>
+    <p class="lede">If you had suspended tabs open when you removed the extension, your browser closed them. Here is how to get them back.</p>
+
+    <div class="alert">
+      <h2>Why this happens</h2>
+      <p>Suspended tabs live on a page that belongs to the extension. When the extension is removed, that page no longer exists, so the browser closes those tabs. Your original URLs are not lost though, they are still in your history.</p>
+    </div>
+
+    <div class="section">
+      <h2>Quickest fix: reopen closed tabs</h2>
+      <p>Press <code>Ctrl+Shift+T</code> (<code>Cmd+Shift+T</code> on Mac) repeatedly. This reopens recently closed tabs, often the fastest way to get a whole window back.</p>
+    </div>
+
+    <div class="section">
+      <h2>If that is not enough: recover from history</h2>
+      <ol>
+        <li>Open your history with <code>Ctrl+H</code> (<code>Cmd+Y</code> on Mac).</li>
+        <li>Search for <code>suspended.html</code>.</li>
+        <li>Each result is one of your suspended tabs. The original address is inside the link, after <code>url=</code>.</li>
+        <li>Open the entry and copy that address, or simply reopen the page you recognise from its title.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>Avoiding this next time</h2>
+      <p>The extension has a <strong>Restore all suspended tabs</strong> button in its popup. Clicking it before disabling or uninstalling brings every tab back to its real address first, so nothing is lost.</p>
+    </div>
+
+    <div class="section">
+      <h2>Tell us what went wrong</h2>
+      <p>If you left because of a bug or a missing feature, we genuinely want to know: <a href="mailto:support@tabsuspender.app">support@tabsuspender.app</a>. It is a small independent project and feedback shapes what gets built next.</p>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 Tab Suspender · <a href="index.html">tabsuspender.app</a></footer>
+</body>
+</html>

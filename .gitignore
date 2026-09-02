@@ -9,3 +9,5 @@ launch.json
 build/
 *.zip
 .DS_Store
+# Métadonnées AppleDouble créées par macOS sur les disques externes (T7)
+._*

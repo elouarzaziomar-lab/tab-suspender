@@ -1,0 +1,11 @@
+# Templates internes (génération d'images store) — pas à déployer
+promo-*.html
+marquee-*.html
+tile-*.html
+
+# Build / config locale
+.claude/
+launch.json
+build/
+*.zip
+.DS_Store
